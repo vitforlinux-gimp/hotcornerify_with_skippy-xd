@@ -1,0 +1,22 @@
+mkdir ~/.config/bl-hotcorners/
+
+echo "[Hot Corners]" > ~/.config/bl-hotcorners/bl-hotcornersrc
+echo "top_left_corner_command = skippy-xd" >>  ~/.config/bl-hotcorners/bl-hotcornersrc
+echo "top_right_corner_command = " >>  ~/.config/bl-hotcorners/bl-hotcornersrc
+echo "bottom_left_corner_command = " >>  ~/.config/bl-hotcorners/bl-hotcornersrc
+echo "bottom_right_corner_command = " >>  ~/.config/bl-hotcorners/bl-hotcornersrc
+echo "polling_interval = 0.4" >>  ~/.config/bl-hotcorners/bl-hotcornersrc
+echo "corner_delay = 0.2" >>  ~/.config/bl-hotcorners/bl-hotcornersrc
+echo "bounce_distance = 40" >>  ~/.config/bl-hotcorners/bl-hotcornersrc
+
+wget http://la.mxrepo.com/antix/bookworm/pool/main/s/skippy-xd/skippy-xd_0.5.1~git20160429~mx19_amd64.deb
+
+sudo apt install ./skippy-xd* python3-xlib wmctrl xdotool
+
+wget https://github.com/capn-damo/scripts/raw/master/bl-hotcorners-python3 -P /tmp
+
+chmod +x /tmp/bl-hotcorners-python3
+
+sudo mv /tmp/bl-hotcorners-python3 /usr/local/bin/
+
+echo -e "\n\t now add bl-hotcorners-python3 -d to autostart"
